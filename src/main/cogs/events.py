@@ -12,12 +12,14 @@ class EventHandler(Cog):
         print("Cog Event Handler is ready")
 
     @Cog.listener()
+    @commands.guild_only()
     async def on_member_join(self, member):
         print("event MemberJoinEven triggered")
         welcomeChannel = client.get_channel(820937112354422815)
         await welcomeChannel.send(f"{member.display_name} has joined!")
 
     @Cog.listener()
+    @commands.guild_only()
     async def on_member_remove(self, member):
         print("event MemberLeaveEvent triggered")
         goodbye_channel = client.get_channel(821054437828460574)
